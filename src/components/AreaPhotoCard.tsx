@@ -14,7 +14,7 @@ export function AreaPhotoCard({ area, className }: { area: Province; className?:
       href={`/${area.slug}/`}
       aria-label={`Air duct cleaning in ${area.name} — from $${area.priceFrom}`}
       className={cn(
-        "group relative isolate flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-3xl rounded-tl-[3rem] shadow-[0_24px_50px_-28px_rgba(29,33,39,0.6)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-26px_rgba(29,33,39,0.75)]",
+        "group relative isolate flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-md shadow-[0_24px_50px_-28px_rgba(29,33,39,0.6)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-26px_rgba(29,33,39,0.75)]",
         className
       )}
     >

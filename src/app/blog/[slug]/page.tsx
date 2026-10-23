@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   }
 
   return (
-    <div className="theme-dark relative min-h-screen pt-28 sm:pt-32">
+    <div className="theme-inner relative min-h-screen pt-28 sm:pt-32 lg:pt-40">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <Container className="max-w-3xl py-12">
@@ -81,8 +81,8 @@ export default async function BlogPostPage({ params }: PageProps) {
               { label: post.title, href: `/blog/${post.slug}/` },
             ]}
           />
-          <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">{post.title}</h1>
-          <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-300">
+          <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-ink sm:text-5xl">{post.title}</h1>
+          <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink-soft">
             <span>By the {site.name} team</span>
             <span>{fmtDate(post.date)}</span>
             <span className="flex items-center gap-1.5">
@@ -90,22 +90,22 @@ export default async function BlogPostPage({ params }: PageProps) {
               {post.readMins} min read
             </span>
           </p>
-          <p className="mt-8 text-xl leading-relaxed text-[#ffe8ea]">{post.intro}</p>
+          <p className="mt-8 text-xl leading-relaxed text-ink-soft">{post.intro}</p>
         </Reveal>
 
         <article className="mt-10 space-y-10">
           {post.sections.map((s) => (
             <section key={s.heading}>
-              <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">{s.heading}</h2>
+              <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">{s.heading}</h2>
               {s.paragraphs.map((t) => (
-                <p key={t.slice(0, 40)} className="mt-4 text-lg leading-relaxed text-slate-200">
+                <p key={t.slice(0, 40)} className="mt-4 text-lg leading-relaxed text-ink-soft">
                   <RichText text={t} />
                 </p>
               ))}
               {s.bullets && (
                 <ul className="mt-5 space-y-3">
                   {s.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-lg text-slate-100">
+                    <li key={b} className="flex items-start gap-3 text-lg text-ink-soft">
                       <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-mint-400" />
                       <span>
                         <RichText text={b} />
@@ -120,38 +120,38 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {post.faqs && (
           <section className="mt-14">
-            <h2 className="mb-6 font-display text-2xl font-bold text-white sm:text-3xl">Quick answers</h2>
+            <h2 className="mb-6 font-display text-2xl font-bold text-ink sm:text-3xl">Quick answers</h2>
             <ServiceFAQ faqs={post.faqs} />
           </section>
         )}
 
         {/* Booking prompt */}
-        <div className="relative isolate mt-14 overflow-hidden rounded-[2rem] rounded-tl-[4rem] border border-white/10 bg-white/10 p-8 text-center backdrop-blur">
-          <CardDecor tone="dark" size="lg" />
-          <h2 className="font-display text-2xl font-bold text-white">Ready for cleaner air?</h2>
-          <p className="mx-auto mt-3 max-w-md text-slate-200">
+        <div className="relative isolate mt-14 overflow-hidden rounded-md border border-line bg-white p-8 text-center backdrop-blur">
+          <CardDecor size="lg" />
+          <h2 className="font-display text-2xl font-bold text-ink">Ready for cleaner air?</h2>
+          <p className="mx-auto mt-3 max-w-md text-ink-soft">
             See your exact price and pick a slot between 8 am and 6 pm — it takes about two minutes.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href="#quote" size="lg">Book online</Button>
-            <Link href="/duct-cleaning-cost/" className="font-semibold text-mint-400 hover:text-white">
+            <Link href="/duct-cleaning-cost/" className="font-semibold text-mint-400 hover:text-ink">
               View prices
             </Link>
           </div>
         </div>
       </Container>
 
-      <section className="border-t border-white/5 bg-white/[0.03] py-14">
+      <section className="border-t border-line bg-teal-50/50 py-14">
         <Container>
-          <h2 className="font-display text-2xl font-bold text-white">More guides</h2>
+          <h2 className="font-display text-2xl font-bold text-ink">More guides</h2>
           <div className="mt-6 grid gap-5 md:grid-cols-3">
             {more.map((p) => (
               <Link
                 key={p.slug}
                 href={`/blog/${p.slug}/`}
-                className="group rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-mint-400/40"
+                className="group rounded-md border border-line bg-white p-5 transition-colors hover:border-teal-300"
               >
-                <h3 className="font-display font-semibold text-white">{p.title}</h3>
+                <h3 className="font-display font-semibold text-ink">{p.title}</h3>
                 <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-mint-400">
                   Read
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

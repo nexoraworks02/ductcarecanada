@@ -55,14 +55,14 @@ export function PricingPlans() {
               onClick={() => setTier(i)}
               aria-pressed={tier === i}
               className={cn(
-                "relative rounded-full px-5 py-2.5 text-sm font-bold uppercase tracking-wide transition-colors",
+                "relative px-5 py-2.5 text-sm font-bold uppercase tracking-wide transition-colors",
                 tier === i ? "text-white" : "bg-teal-50 text-teal-800 hover:bg-teal-100"
               )}
             >
               {tier === i && (
                 <motion.span
                   layoutId="tier-pill"
-                  className="absolute inset-0 rounded-full bg-teal-400"
+                  className="absolute inset-0 bg-teal-400"
                   transition={{ type: "spring", stiffness: 400, damping: 32 }}
                 />
               )}
@@ -71,7 +71,7 @@ export function PricingPlans() {
           ))}
         </Reveal>
 
-        <Stagger className="relative isolate mt-10 grid overflow-hidden rounded-[2rem] rounded-tl-[5rem] border border-slate-200 bg-white shadow-[0_30px_70px_-40px_rgba(29,33,39,0.45)] lg:grid-cols-5">
+        <Stagger className="relative isolate mt-10 grid overflow-hidden rounded-md border border-slate-200 bg-white shadow-[0_30px_70px_-40px_rgba(29,33,39,0.45)] lg:grid-cols-5">
           <CardDecor size="lg" />
 
           {/* Basic Duct Cleaning */}

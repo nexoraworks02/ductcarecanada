@@ -78,20 +78,12 @@ body {
   line-height: 1.6;
 }
 
-/* Dark-themed scope for content subpages (services / service areas / 404).
-   Redefines the surface + text tokens to the charcoal palette so token-based
-   utilities (text-ink, bg-surface, border-line, …) render on dark. */
-.theme-dark {
-  --color-ink: #ffffff;
-  --color-ink-soft: #d9d6d2;
-  /* Same charcoal as the homepage colour bands (band-900/700). */
-  --color-canvas: var(--color-band-900);
-  --color-surface: var(--color-band-700);
-  --color-line: #3d434c;
-  --color-teal-600: #ff9aa5;
-  --color-teal-700: #ffc6cc;
-  --color-mint-400: #ffc6cc;
-  --color-mint-500: #ffe8ea;
+/* Inner content pages (services / areas / cities / price guides / blog / 404):
+   light warm background, with the blush accent swapped for red so accent
+   text stays readable on white. */
+.theme-inner {
+  --color-mint-400: #c8102e;
+  --color-mint-500: #edbfc2;
   background-color: var(--color-canvas);
   color: var(--color-ink);
 }

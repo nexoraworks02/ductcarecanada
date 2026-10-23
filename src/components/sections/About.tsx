@@ -33,7 +33,7 @@ export function About() {
         {/* Photo + quote card */}
         <Reveal from="left" className="relative mx-auto w-full max-w-[480px] pb-16 sm:pb-10">
           {/* Vertical (4:5) frame + vertical photo so nothing is awkwardly cropped */}
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-[0_30px_70px_-30px_rgba(29,33,39,0.5)]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-md shadow-[0_30px_70px_-30px_rgba(29,33,39,0.5)]">
             <motion.div style={{ y: imgY }} className="absolute -inset-y-12 inset-x-0">
               <Image
                 src="/images/photos/maritime.webp"
@@ -48,7 +48,7 @@ export function About() {
           <Reveal
             from="up"
             delay={0.3}
-            className="absolute -bottom-2 left-6 right-6 rounded-2xl bg-teal-400 p-7 text-white shadow-[0_24px_50px_-20px_rgba(29,33,39,0.9)] sm:left-16 sm:right-[-1.5rem]"
+            className="absolute -bottom-2 left-6 right-6 rounded-md bg-teal-400 p-7 text-white shadow-[0_24px_50px_-20px_rgba(29,33,39,0.9)] sm:left-16 sm:right-[-1.5rem]"
           >
             <Quote className="absolute right-5 top-4 h-10 w-10 text-white/25" />
             <p className="relative text-base italic leading-relaxed">
@@ -57,7 +57,7 @@ export function About() {
             </p>
           </Reveal>
           {/* Floating badge */}
-          <div className="absolute -right-3 top-8 hidden rounded-2xl rounded-tl-[1.75rem] bg-white px-5 py-4 shadow-xl motion-safe:animate-[float-y_5s_ease-in-out_infinite] sm:block">
+          <div className="absolute -right-3 top-8 hidden rounded-md bg-white px-5 py-4 shadow-xl motion-safe:animate-[float-y_5s_ease-in-out_infinite] sm:block">
             <p className="font-display text-3xl font-black text-teal-800">{`$${lowestPrice}`}</p>
             <p className="text-xs font-bold uppercase tracking-wider text-ink-soft">Starting price</p>
           </div>
@@ -91,7 +91,7 @@ export function About() {
           </Stagger>
 
           <Reveal delay={0.2} className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
-            <div className="relative h-24 w-28 shrink-0 sm:h-32 sm:w-40 overflow-hidden rounded-2xl shadow-lg">
+            <div className="relative h-24 w-28 shrink-0 sm:h-32 sm:w-40 overflow-hidden rounded-md shadow-lg">
               <Image
                 src="/images/photos/duct-hose.webp"
                 alt="Duct cleaning hose inside an air duct"

@@ -7,9 +7,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
   Brush,
+  CalendarCheck,
   ChevronDown,
+  Clock,
   Filter,
   Flame,
+  Mail,
+  MapPin,
   Menu,
   Phone,
   Snowflake,
@@ -30,8 +34,10 @@ type MenuKey = "services" | "areas";
 // Which top-level nav items open a dropdown (matched by label).
 const DROPDOWN_FOR: Record<string, MenuKey> = { Services: "services", "Service Areas": "areas" };
 
-// White header: logo · pill menu with hover dropdowns · compact "Call Now".
-// Slim (76px), shrinks a little and gains a shadow once the page scrolls.
+// Two-tier header. Desktop: a charcoal info bar (regions · hours · phone ·
+// email) that folds away on scroll, above a white bar with logo, flat menu
+// links with a red underline and a square "Book online" button.
+// Phones: logo + menu button only (the bottom bar has Call / Get Quote).
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false); // mobile menu
@@ -77,11 +83,40 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.21, 0.5, 0.27, 1] }}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 bg-white transition-shadow duration-300",
+        "fixed inset-x-0 top-0 z-50 border-b border-line bg-white transition-shadow duration-300",
         scrolled && "shadow-[0_12px_40px_-18px_rgba(29,33,39,0.35)]"
       )}
       onKeyDown={(e) => e.key === "Escape" && setMenu(null)}
     >
+      {/* Info bar — desktop only, folds away once the page scrolls */}
+      <div
+        className={cn(
+          "hidden overflow-hidden bg-teal-800 text-[12px] text-white/80 transition-[height] duration-300 lg:block",
+          scrolled ? "h-0" : "h-9"
+        )}
+      >
+        <Container className="flex h-9 max-w-7xl items-center justify-between gap-6">
+          <p className="flex items-center gap-2">
+            <MapPin className="h-3.5 w-3.5 text-mint-400" />
+            Serving {provinces.map((p) => (p.code === "MT" ? "the Maritimes" : p.code)).join(" · ")}
+          </p>
+          <div className="flex items-center gap-6">
+            <span className="flex items-center gap-2">
+              <Clock className="h-3.5 w-3.5 text-mint-400" />
+              Arrivals 8 am – 6 pm
+            </span>
+            <a href={`mailto:${site.email}`} className="flex items-center gap-2 hover:text-white">
+              <Mail className="h-3.5 w-3.5 text-mint-400" />
+              {site.email}
+            </a>
+            <a href={tel} className="flex items-center gap-2 font-bold text-white">
+              <Phone className="h-3.5 w-3.5 text-mint-400" />
+              {site.defaultPhone}
+            </a>
+          </div>
+        </Container>
+      </div>
+
       <Container
         className={cn(
           "flex max-w-7xl items-center justify-between gap-4 transition-all duration-300",
@@ -92,25 +127,34 @@ export function Navbar() {
           <Logo tone="dark" size="sm" />
         </Link>
 
-        <nav className="hidden items-center gap-0.5 rounded-full border border-slate-200 bg-gradient-to-b from-white to-slate-50 px-2 py-1.5 shadow-[0_6px_20px_-12px_rgba(29,33,39,0.4)] xl:flex">
+        <nav className="hidden h-full items-stretch xl:flex">
           {nav.map((item) => {
             const dd = DROPDOWN_FOR[item.label];
+            const on = isActive(item.href) || (dd && menu === dd);
             const linkCls = cn(
-              "group relative inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.06em] transition-colors",
-              isActive(item.href) || (dd && menu === dd) ? "text-teal-500" : "text-teal-800 hover:text-teal-500"
+              "group relative inline-flex h-full items-center gap-1 whitespace-nowrap px-4 text-[13px] font-bold uppercase tracking-[0.06em] transition-colors",
+              on ? "text-teal-400" : "text-teal-800 hover:text-teal-400"
+            );
+            const underline = (
+              <span
+                className={cn(
+                  "absolute inset-x-4 bottom-0 h-[3px] origin-left bg-teal-400 transition-transform duration-300 group-hover:scale-x-100",
+                  on ? "scale-x-100" : "scale-x-0"
+                )}
+              />
             );
             if (!dd) {
               return (
                 <Link key={item.href} href={item.href} className={linkCls}>
                   {item.label}
-                  <span className="absolute inset-x-3 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded bg-teal-400 transition-transform duration-300 group-hover:scale-x-100" />
+                  {underline}
                 </Link>
               );
             }
             return (
               <div
                 key={item.href}
-                className="relative"
+                className="relative h-full"
                 onMouseEnter={() => openMenu(dd)}
                 onMouseLeave={closeMenuSoon}
                 onFocus={() => openMenu(dd)}
@@ -119,10 +163,11 @@ export function Navbar() {
                 <Link href={item.href} className={linkCls} aria-haspopup="true" aria-expanded={menu === dd}>
                   {item.label}
                   <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", menu === dd && "rotate-180")} />
+                  {underline}
                 </Link>
                 {/* Outer div centres the panel; inner motion.div animates
                     (framer's transform would otherwise override translate-x). */}
-                <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4">
+                <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-px">
                   <AnimatePresence>
                     {menu === dd && (
                       <motion.div
@@ -141,13 +186,13 @@ export function Navbar() {
           })}
         </nav>
 
-        <a
-          href={tel}
-          className="group hidden items-center gap-2 whitespace-nowrap rounded-lg bg-teal-800 px-4 py-2.5 text-[12px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_10px_24px_-14px_rgba(29,33,39,0.9)] transition-all hover:-translate-y-0.5 hover:bg-teal-700 xl:inline-flex"
+        <Link
+          href="/#quote"
+          className="btn-primary hidden items-center gap-2 whitespace-nowrap bg-teal-400 px-5 py-3 text-[12px] font-bold uppercase tracking-[0.1em] text-white transition-colors hover:bg-teal-500 xl:inline-flex"
         >
-          <Phone className="h-3.5 w-3.5 transition-transform group-hover:rotate-12" />
-          Call Now: {site.defaultPhone}
-        </a>
+          <CalendarCheck className="h-4 w-4" />
+          Book online
+        </Link>
 
         <button
           className="rounded-lg p-2 text-teal-800 xl:hidden"
@@ -251,12 +296,10 @@ function PanelShell({ children, className }: { children: React.ReactNode; classN
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl rounded-tl-[2.5rem] border border-slate-200 bg-white p-3 shadow-[0_30px_70px_-25px_rgba(29,33,39,0.45)]",
+        "relative overflow-hidden border border-t-4 border-line border-t-teal-400 bg-white p-3 shadow-[0_30px_70px_-25px_rgba(29,33,39,0.45)]",
         className
       )}
     >
-      {/* little pointer */}
-      <span className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t border-slate-200 bg-white" />
       {children}
     </div>
   );

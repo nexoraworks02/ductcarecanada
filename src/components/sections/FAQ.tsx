@@ -13,7 +13,7 @@ export function FAQ() {
     <Section id="faq" className="bg-canvas">
       <SectionHeading eyebrow="Good to know" title="Frequently asked questions" />
       <Reveal from="zoom" className="mx-auto mt-12 max-w-3xl">
-      <div className="relative isolate divide-y divide-slate-200 overflow-hidden rounded-[2rem] rounded-tl-[5rem] border border-slate-200 bg-white pb-6 shadow-[0_30px_70px_-40px_rgba(29,33,39,0.45)]">
+      <div className="relative isolate divide-y divide-slate-200 overflow-hidden rounded-md border border-slate-200 bg-white pb-6 shadow-[0_30px_70px_-40px_rgba(29,33,39,0.45)]">
         <CardDecor size="lg" />
         {faqs.map((f, i) => {
           const isOpen = open === i;

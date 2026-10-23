@@ -13,17 +13,17 @@ export function ServiceFAQ({ faqs }: { faqs: FAQItem[] }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="relative isolate mx-auto mt-12 max-w-3xl divide-y divide-white/10 overflow-hidden rounded-[2rem] rounded-tl-[5rem] border border-white/10 bg-white/5 pb-6 backdrop-blur-sm">
-      <CardDecor tone="dark" size="lg" />
+    <div className="relative isolate mx-auto mt-12 max-w-3xl divide-y divide-line overflow-hidden rounded-md border border-line bg-white pb-6 backdrop-blur-sm">
+      <CardDecor size="lg" />
       {faqs.map((f, i) => {
         const isOpen = open === i;
         return (
           <div key={f.question}>
             <button
               onClick={() => setOpen(isOpen ? null : i)}
-              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-white/5"
+              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-teal-50"
             >
-              <span className="font-display font-semibold text-white">
+              <span className="font-display font-semibold text-ink">
                 {f.question}
               </span>
               <span className="shrink-0 text-[#C8102E]">
@@ -42,7 +42,7 @@ export function ServiceFAQ({ faqs }: { faqs: FAQItem[] }) {
               }`}
             >
               <div className="overflow-hidden">
-                <p className="px-6 pb-5 leading-relaxed text-[#d9d6d2] text-sm md:text-base">
+                <p className="px-6 pb-5 leading-relaxed text-ink-soft text-sm md:text-base">
                   {f.answer}
                 </p>
               </div>

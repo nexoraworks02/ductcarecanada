@@ -212,7 +212,7 @@ export function BookingForm({ defaultProvince = "ON" }: { defaultProvince?: stri
 
   return (
     <>
-      <div className="relative isolate overflow-hidden rounded-[2rem] rounded-tl-[5rem] border border-white/10 bg-white/5 p-5 sm:p-8 sm:pb-14">
+      <div className="relative isolate overflow-hidden rounded-md border border-white/10 bg-white/5 p-5 sm:p-8 sm:pb-14">
         <CardDecor tone="dark" size="lg" />
         {step === "form" && (
           <form onSubmit={submitBooking} className="space-y-10">
@@ -398,7 +398,7 @@ export function BookingForm({ defaultProvince = "ON" }: { defaultProvince?: stri
             </div>
 
             {/* Live booking summary */}
-            <div className="rounded-2xl border border-white/10 bg-navy/60 p-6 text-white backdrop-blur">
+            <div className="rounded-md border border-white/10 bg-navy/60 p-6 text-white backdrop-blur">
               <div className="flex items-center justify-between gap-4">
                 <span className="text-slate-200">
                   {`${base.label} · ${selectedProvince.name}`}
@@ -443,7 +443,7 @@ export function BookingForm({ defaultProvince = "ON" }: { defaultProvince?: stri
             {error && (
               <div
                 role="alert"
-                className="flex flex-col items-center gap-3 rounded-2xl border border-red-500/30 bg-red-500/10 p-5 text-center"
+                className="flex flex-col items-center gap-3 rounded-md border border-red-500/30 bg-red-500/10 p-5 text-center"
               >
                 <p className="flex items-center gap-2 text-sm font-medium text-red-300">
                   <AlertCircle className="h-5 w-5 shrink-0" />

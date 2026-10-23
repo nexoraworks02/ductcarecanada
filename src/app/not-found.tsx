@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { Wind } from "lucide-react";
-import { Button, onDarkSecondary } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
-    <main className="theme-dark flex min-h-screen flex-col items-center justify-center px-6 pt-32 text-center">
-      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#C8102E] to-[#8C0B21] text-white shadow-lg">
+    <main className="theme-inner flex min-h-screen flex-col items-center justify-center px-6 pt-32 text-center">
+      <div className="flex h-16 w-16 items-center justify-center rounded-md bg-gradient-to-br from-[#C8102E] to-[#8C0B21] text-white shadow-lg">
         <Wind className="h-8 w-8" />
       </div>
-      <h1 className="mt-6 font-display text-5xl font-bold text-white">
+      <h1 className="mt-6 font-display text-5xl font-bold text-ink">
         Page not found
       </h1>
       <p className="mt-4 max-w-md text-ink-soft">
@@ -19,11 +19,11 @@ export default function NotFound() {
         <Button href="/" size="lg">
           Back to Home
         </Button>
-        <Button href="/#quote" size="lg" variant="secondary" className={onDarkSecondary}>
+        <Button href="/#quote" size="lg" variant="secondary">
           Get a Free Quote
         </Button>
       </div>
-      <p className="mt-8 text-sm text-slate-500">
+      <p className="mt-8 text-sm text-muted">
         Popular:{" "}
         <Link href="/services/air-duct-cleaning" className="text-teal-600 hover:text-mint-400">
           Air Duct Cleaning

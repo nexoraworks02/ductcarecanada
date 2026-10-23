@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { Mail, Phone, MessageCircle, MapPin } from "lucide-react";
+import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Logo } from "./Logo";
 import { Container } from "./ui/Container";
 import { BookingCTA } from "./sections/BookingCTA";
-import { services, site, telHref } from "@/config/site";
-import { provincePages } from "@/config/service-areas";
+import { provinces, services, site, telHref } from "@/config/site";
 
 function FacebookIcon() {
   return (
@@ -24,19 +23,48 @@ function InstagramIcon() {
   );
 }
 
+const COMPANY_LINKS = [
+  { href: "/#how-it-works", label: "How it works" },
+  { href: "/duct-cleaning-cost/", label: "Prices" },
+  { href: "/#compare", label: "Compare quotes" },
+  { href: "/service-areas/", label: "Service areas" },
+  { href: "/blog/", label: "Duct care guides" },
+];
+
+// Footer: red booking band → province picker → link columns → legal bar.
 export function Footer() {
   return (
-    <footer id="contact" className="relative mt-16 scroll-mt-24 bg-gradient-to-br from-[#15181C] via-[#1D2127] to-[#292E35] pt-28 text-slate-300 sm:mt-24">
-      {/* "Book your cleaning in minutes" banner overlapping the footer top —
-          on every page (opens the booking pop-up). */}
-      <Container className="relative -mt-44 sm:-mt-52">
-        <BookingCTA />
-      </Container>
-      <Container className="grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
-        <div className="lg:col-span-4">
+    <footer id="contact" className="relative mt-16 scroll-mt-24 bg-teal-800 text-white/70 sm:mt-24">
+      <BookingCTA />
+
+      {/* Province picker */}
+      <div className="border-b border-white/10">
+        <Container className="py-10">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-mint-400">Find your region</p>
+          <ul className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">
+            {provinces.map((p) => (
+              <li key={p.code}>
+                <Link
+                  href={`/${p.slug}/`}
+                  className="group flex h-full flex-col justify-between gap-2 border border-white/10 p-4 transition-colors hover:border-teal-400 hover:bg-teal-400"
+                >
+                  <span className="font-display font-bold leading-tight text-white">{p.name}</span>
+                  <span className="flex items-center justify-between text-xs font-semibold text-white/60 group-hover:text-white">
+                    {`from $${p.priceFrom}`}
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </div>
+
+      <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+        <div className="sm:col-span-2 lg:col-span-4">
           <Logo />
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
-            {site.description}
+          <p className="mt-5 max-w-sm text-sm leading-relaxed">
+            Air duct, furnace, dryer vent and HRV cleaning with published prices and every vent included.
           </p>
           <div className="mt-6 flex gap-3">
             {site.facebookUrl && (
@@ -45,7 +73,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-mint-500 hover:text-navy"
+                className="flex h-9 w-9 items-center justify-center bg-white/10 text-white transition-colors hover:bg-teal-400"
               >
                 <FacebookIcon />
               </a>
@@ -56,7 +84,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-mint-500 hover:text-navy"
+                className="flex h-9 w-9 items-center justify-center bg-white/10 text-white transition-colors hover:bg-teal-400"
               >
                 <InstagramIcon />
               </a>
@@ -64,126 +92,86 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="lg:col-span-2">
-          <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-white">
-            Services
-          </h3>
-          <span className="mt-3 block h-0.5 w-8 bg-mint-500" />
-          <ul className="mt-4 space-y-2.5 text-sm">
-            {services.map((s) => (
-              <li key={s.slug}>
-                <Link
-                  href={`/services/${s.slug}`}
-                  className="text-slate-400 transition-colors hover:text-white"
-                >
-                  {s.name}
-                </Link>
-              </li>
-            ))}
-            <li className="pt-2">
-              <Link href="/duct-cleaning-cost/" className="text-slate-400 transition-colors hover:text-white">
-                Duct cleaning cost
+        <FooterColumn title="Services" className="lg:col-span-3">
+          {services.map((s) => (
+            <li key={s.slug}>
+              <Link href={`/services/${s.slug}/`} className="transition-colors hover:text-white">
+                {s.name}
               </Link>
             </li>
-          </ul>
-        </div>
+          ))}
+        </FooterColumn>
 
-        <div className="lg:col-span-3">
-          <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-white">
-            Service Areas
-          </h3>
-          <span className="mt-3 block h-0.5 w-8 bg-mint-500" />
-          <ul className="mt-4 space-y-2.5 text-sm">
-            {provincePages.map((p) => (
-              <li key={p.slug}>
-                <Link
-                  href={`/${p.slug}/`}
-                  className="text-slate-400 transition-colors hover:text-white"
-                >
-                  Air Duct Cleaning {p.name}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link
-                href="/service-areas/"
-                className="text-slate-400 transition-colors hover:text-white"
-              >
-                All service areas
+        <FooterColumn title="Company" className="lg:col-span-2">
+          {COMPANY_LINKS.map((l) => (
+            <li key={l.href}>
+              <Link href={l.href} className="transition-colors hover:text-white">
+                {l.label}
               </Link>
             </li>
-          </ul>
-        </div>
+          ))}
+        </FooterColumn>
 
-        <div className="lg:col-span-3">
-          <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-white">
-            Contact
-          </h3>
-          <span className="mt-3 block h-0.5 w-8 bg-mint-500" />
-          <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-white">
-            <MapPin className="h-4 w-4 shrink-0 text-mint-400" />
-            {site.name}
-          </p>
-          <div className="mt-2 overflow-hidden rounded-lg border border-white/10">
-            <iframe
-              src={site.mapsEmbedUrl}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-28 w-full"
-              title={`${site.name} location map`}
-            />
-          </div>
-          <ul className="mt-4 space-y-4 text-sm">
-            <li className="flex items-start gap-2 text-slate-400">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-mint-400" />
-              <span>{site.address}</span>
-            </li>
-            {site.phones.map((p) => (
-              <li key={p.region} className="space-y-1.5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  {p.region}
-                </p>
-                <a
-                  href={telHref(p.phone)}
-                  className="flex items-center gap-2 text-slate-400 transition-colors hover:text-white"
-                >
-                  <Phone className="h-4 w-4 text-mint-400" />
-                  {p.phone}
-                </a>
-                <a
-                  href={`https://wa.me/${p.whatsappDigits}?text=${encodeURIComponent(
-                    `Hi ${site.name}, I want a free duct cleaning quote.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-slate-400 transition-colors hover:text-white"
-                >
-                  <MessageCircle className="h-4 w-4 text-mint-400" />
-                  WhatsApp: {p.phone}
-                </a>
-              </li>
-            ))}
-            <li>
+        <FooterColumn title="Contact" className="lg:col-span-3">
+          {site.phones.map((p) => (
+            <li key={p.region} className="space-y-2">
+              <a href={telHref(p.phone)} className="flex items-center gap-2 font-bold text-white hover:text-mint-400">
+                <Phone className="h-4 w-4 text-mint-400" />
+                {p.phone}
+              </a>
               <a
-                href={`mailto:${site.email}`}
-                className="flex items-center gap-2 text-slate-400 transition-colors hover:text-white"
+                href={`https://wa.me/${p.whatsappDigits}?text=${encodeURIComponent(
+                  `Hi ${site.name}, I want a free duct cleaning quote.`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 transition-colors hover:text-white"
               >
-                <Mail className="h-4 w-4 text-mint-400" />
-                {site.email}
+                <MessageCircle className="h-4 w-4 text-mint-400" />
+                WhatsApp us
               </a>
             </li>
-          </ul>
-        </div>
+          ))}
+          <li>
+            <a href={`mailto:${site.email}`} className="flex items-center gap-2 transition-colors hover:text-white">
+              <Mail className="h-4 w-4 text-mint-400" />
+              {site.email}
+            </a>
+          </li>
+          <li className="flex items-start gap-2">
+            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-mint-400" />
+            <span>{site.address}</span>
+          </li>
+        </FooterColumn>
       </Container>
 
       <div className="border-t border-white/10">
-        <Container className="flex flex-col items-center justify-between gap-2 py-6 text-xs text-slate-500 sm:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-2 py-6 text-xs text-white/50 sm:flex-row">
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-          <p>Certified Technicians · No Hidden Charges · Guaranteed Satisfaction</p>
+          <p>Every vent included · Free furnace inspection · Price confirmed first</p>
         </Container>
       </div>
     </footer>
+  );
+}
+
+function FooterColumn({
+  title,
+  className,
+  children,
+}: {
+  title: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className={className}>
+      <h3 className="border-l-4 border-teal-400 pl-3 font-display text-sm font-bold uppercase tracking-[0.14em] text-white">
+        {title}
+      </h3>
+      <ul className="mt-5 space-y-3 text-sm">{children}</ul>
+    </div>
   );
 }

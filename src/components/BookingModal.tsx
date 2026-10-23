@@ -103,7 +103,7 @@ export function BookingModal() {
           open: { y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 30 } },
           closed: { y: 40, scale: 0.97 },
         }}
-        className="relative flex max-h-full w-full flex-col overflow-hidden bg-gradient-to-br from-band-700 via-band-700 to-band-500 shadow-2xl sm:max-h-[92vh] sm:max-w-3xl sm:rounded-[2rem]"
+        className="relative flex max-h-full w-full flex-col overflow-hidden bg-gradient-to-br from-band-700 via-band-700 to-band-500 shadow-2xl sm:max-h-[92vh] sm:max-w-3xl sm:rounded-md"
       >
         {/* Header */}
         <div className="flex items-start justify-between gap-4 border-b border-white/10 px-5 pb-4 pt-5 sm:px-8 sm:pt-7">

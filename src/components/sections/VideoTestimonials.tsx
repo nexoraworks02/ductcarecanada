@@ -128,9 +128,9 @@ function FeaturedPlayer({ onOpen }: { onOpen: () => void }) {
       <div className="pointer-events-none absolute -bottom-10 -right-14 h-48 w-48 rounded-full bg-teal-50 motion-safe:animate-[float-y_6s_ease-in-out_infinite]" />
       <SparkleField className="text-teal-200" />
 
-      <div className="relative rounded-[2.75rem] bg-teal-800 p-3 shadow-[0_40px_80px_-30px_rgba(29,33,39,0.75)]">
+      <div className="relative rounded-md bg-teal-800 p-3 shadow-[0_40px_80px_-30px_rgba(29,33,39,0.75)]">
         <div className="absolute left-1/2 top-5 z-10 h-1.5 w-16 -translate-x-1/2 rounded-full bg-white/25" />
-        <div className="relative aspect-[9/16] overflow-hidden rounded-[2.1rem] rounded-tl-[3.5rem] bg-black">
+        <div className="relative aspect-[9/16] overflow-hidden rounded-md bg-black">
           <video
             {...VIDEO_PROTECT}
             ref={ref}
@@ -245,7 +245,7 @@ function WallCard({
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: Math.min(index, 5) * 0.06 }}
       aria-label={`Play customer video review ${index + 1}`}
-      className="group relative isolate aspect-[9/16] w-[200px] shrink-0 snap-start overflow-hidden rounded-3xl rounded-tl-[3rem] bg-teal-800 shadow-[0_24px_50px_-24px_rgba(29,33,39,0.6)] sm:w-[220px]"
+      className="group relative isolate aspect-[9/16] w-[200px] shrink-0 snap-start overflow-hidden rounded-md bg-teal-800 shadow-[0_24px_50px_-24px_rgba(29,33,39,0.6)] sm:w-[220px]"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -347,7 +347,7 @@ function Lightbox({
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative h-[min(85vh,760px)] aspect-[9/16] max-w-full overflow-hidden rounded-3xl rounded-tl-[3.5rem] bg-black shadow-2xl"
+        className="relative h-[min(85vh,760px)] aspect-[9/16] max-w-full overflow-hidden rounded-md bg-black shadow-2xl"
       >
         <video
           {...VIDEO_PROTECT}

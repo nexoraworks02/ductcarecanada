@@ -42,7 +42,7 @@ export function Services() {
                   onMouseEnter={() => setActive(i)}
                   onFocus={() => setActive(i)}
                   className={cn(
-                    "group relative isolate flex h-full flex-col overflow-hidden rounded-3xl rounded-tl-[3rem] border p-8 transition-all duration-500",
+                    "group relative isolate flex h-full flex-col overflow-hidden rounded-md border p-8 transition-all duration-500",
                     on
                       ? "-translate-y-2 border-transparent bg-teal-400 text-white shadow-[0_30px_60px_-25px_rgba(29,33,39,0.9)]"
                       : "border-teal-100 bg-white/70 text-teal-800"
@@ -74,7 +74,7 @@ export function Services() {
             <Link
               href="/#quote"
               onMouseEnter={() => setActive(-1)}
-              className="group relative flex h-full min-h-[200px] flex-col justify-end overflow-hidden rounded-3xl rounded-tl-[3rem] p-8 text-white sm:min-h-[220px] sm:p-10"
+              className="group relative flex h-full min-h-[200px] flex-col justify-end overflow-hidden rounded-md p-8 text-white sm:min-h-[220px] sm:p-10"
             >
               <Image
                 src="/images/photos/ac-unit.webp"
@@ -98,7 +98,7 @@ export function Services() {
         <div className="mt-16 grid items-center gap-6 md:grid-cols-[1fr_1fr_1.1fr]">
           {["/images/photos/vent-dusty.webp", "/images/photos/tech-ceiling-vent.webp"].map((src, i) => (
             <Reveal key={src} delay={i * 0.12} from="zoom">
-              <div className="group relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg">
+              <div className="group relative aspect-[4/3] overflow-hidden rounded-md shadow-lg">
                 <Image
                   src={src}
                   alt={i === 0 ? "Dusty air vent before cleaning" : "Technician cleaning a ceiling air vent"}

@@ -14,7 +14,7 @@ export function RichText({ text }: { text: string }) {
       <Link
         key={i}
         href={m[2]}
-        className="font-semibold text-mint-400 underline decoration-mint-400/40 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+        className="font-semibold text-mint-400 underline decoration-mint-400/40 underline-offset-4 transition-colors hover:text-ink hover:decoration-teal-500"
       >
         {m[1]}
       </Link>

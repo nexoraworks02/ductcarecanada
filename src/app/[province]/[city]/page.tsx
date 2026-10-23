@@ -6,7 +6,7 @@ import { cities, citiesIn, cityArea, cityUrl, costUrl, getCity } from "@/config/
 import { services, site, phoneFor, telHref } from "@/config/site";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { Button, onDarkSecondary } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { CardDecor } from "@/components/ui/CardDecor";
 import { ServiceFAQ } from "@/components/ServiceFAQ";
@@ -78,10 +78,10 @@ export default async function CityPage({ params }: PageProps) {
   ];
 
   return (
-    <div className="theme-dark relative min-h-screen pt-28 sm:pt-32">
+    <div className="theme-inner relative min-h-screen pt-28 sm:pt-32 lg:pt-40">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-[10%] top-[5%] h-[400px] w-[400px] rounded-full bg-[#FF9AA5]/5 blur-[120px]" />
+        <div className="absolute left-[10%] top-[5%] h-[400px] w-[400px] rounded-full bg-teal-200/20 blur-[120px]" />
       </div>
 
       <Container className="py-12">
@@ -97,20 +97,20 @@ export default async function CityPage({ params }: PageProps) {
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <Reveal>
-              <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm font-medium text-white">
+              <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-1.5 text-sm font-medium text-ink">
                 <MapPin className="h-4 w-4 text-mint-400" />
                 {city.name}, {area.name} · from ${prov.priceFrom}
               </p>
-              <h1 className="mt-5 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              <h1 className="mt-5 font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">
                 Air Duct Cleaning Services in {city.name}
               </h1>
-              <p className="mt-6 text-lg leading-relaxed text-[#d9d6d2]">{city.intro}</p>
+              <p className="mt-6 text-lg leading-relaxed text-ink-soft">{city.intro}</p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="flex items-center gap-3 text-slate-200">
+                <div className="flex items-center gap-3 text-ink-soft">
                   <ShieldCheck className="h-5 w-5 shrink-0 text-mint-400" />
                   <span>Trained &amp; Insured Technicians</span>
                 </div>
-                <div className="flex items-center gap-3 text-slate-200">
+                <div className="flex items-center gap-3 text-ink-soft">
                   <Clock className="h-5 w-5 shrink-0 text-mint-400" />
                   <span>Open 8 am – 6 pm, incl. evenings</span>
                 </div>
@@ -118,7 +118,7 @@ export default async function CityPage({ params }: PageProps) {
               {/* Desktop only — phones have the bottom Call/Quote bar */}
               <div className="mt-8 hidden flex-wrap gap-4 lg:flex">
                 <Button href="#quote" size="lg">Book Online</Button>
-                <Button href={telHref(phone)} variant="secondary" size="lg" className={onDarkSecondary}>
+                <Button href={telHref(phone)} variant="secondary" size="lg">
                   <Phone className="h-4 w-4" />
                   Call {phone}
                 </Button>
@@ -128,25 +128,25 @@ export default async function CityPage({ params }: PageProps) {
 
           <div className="lg:col-span-5">
             <Reveal delay={0.1}>
-              <div className="relative isolate overflow-hidden rounded-[2rem] rounded-tl-[4rem] border border-white/10 bg-white/5 p-8 shadow-soft backdrop-blur-md">
-                <CardDecor tone="dark" size="lg" />
-                <h2 className="font-display text-lg font-semibold uppercase tracking-wider text-[#ffc6cc]">
+              <div className="relative isolate overflow-hidden rounded-md border border-line bg-white p-8 shadow-soft backdrop-blur-md">
+                <CardDecor size="lg" />
+                <h2 className="font-display text-lg font-semibold uppercase tracking-wider text-teal-400">
                   {city.name} prices
                 </h2>
-                <ul className="mt-5 divide-y divide-white/10">
+                <ul className="mt-5 divide-y divide-line">
                   {[prov.pricing.base, ...prov.pricing.addons.filter((a) => ["furnace", "ac", "dryer"].includes(a.id))].map((p) => (
                     <li key={p.id} className="flex items-center justify-between gap-3 py-3">
-                      <span className="text-slate-100">{p.label}</span>
-                      <span className="font-display text-xl font-bold text-white">
+                      <span className="text-ink-soft">{p.label}</span>
+                      <span className="font-display text-xl font-bold text-ink">
                         {p.id === "basic" ? `$${p.price}` : p.unit ? `+$${p.price}/${p.unit}` : `+$${p.price}`}
                       </span>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-4 text-sm text-slate-300">Every duct &amp; vent + free furnace inspection · no hidden charges.</p>
+                <p className="mt-4 text-sm text-ink-soft">Every duct &amp; vent + free furnace inspection · no hidden charges.</p>
                 <Link
                   href={costUrl(city)}
-                  className="group mt-6 inline-flex items-center gap-2 font-semibold text-mint-400 hover:text-white"
+                  className="group mt-6 inline-flex items-center gap-2 font-semibold text-mint-400 hover:text-ink"
                 >
                   {`Full ${city.name} price guide & add-ons`}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -158,20 +158,20 @@ export default async function CityPage({ params }: PageProps) {
       </Container>
 
       {/* Local angle — climate + housing */}
-      <section className="border-y border-white/5 bg-white/[0.03] py-16">
+      <section className="border-y border-line bg-teal-50/50 py-16">
         <Container>
-          <SectionHeading tone="dark" eyebrow="Local know-how" title={`Why ${city.name} homes need duct cleaning`} />
+          <SectionHeading eyebrow="Local know-how" title={`Why ${city.name} homes need duct cleaning`} />
           <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2">
             {[
               { icon: Sun, title: `${city.name}’s climate`, text: city.climate },
               { icon: Home, title: `${city.name} homes`, text: city.homes },
             ].map((b, i) => (
               <Reveal key={b.title} delay={i * 0.08}>
-                <div className="relative isolate h-full overflow-hidden rounded-2xl rounded-tl-[3rem] border border-white/10 bg-white/5 p-7 backdrop-blur">
-                  <CardDecor tone="dark" />
+                <div className="relative isolate h-full overflow-hidden rounded-md border border-line bg-white p-7 backdrop-blur">
+                  <CardDecor />
                   <b.icon className="h-7 w-7 text-mint-400" />
-                  <h3 className="mt-4 font-display text-xl font-semibold text-white">{b.title}</h3>
-                  <p className="mt-3 leading-relaxed text-slate-200">{b.text}</p>
+                  <h3 className="mt-4 font-display text-xl font-semibold text-ink">{b.title}</h3>
+                  <p className="mt-3 leading-relaxed text-ink-soft">{b.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -183,36 +183,36 @@ export default async function CityPage({ params }: PageProps) {
       <Section>
         <div className="grid gap-12 lg:grid-cols-2">
           <Reveal>
-            <h2 className="font-display text-3xl font-bold text-white">Neighbourhoods we serve in {city.name}</h2>
+            <h2 className="font-display text-3xl font-bold text-ink">Neighbourhoods we serve in {city.name}</h2>
             <div className="mt-6 flex flex-wrap gap-2">
               {city.neighbourhoods.map((n) => (
                 <span
                   key={n}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 text-sm font-semibold text-white"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3.5 py-1.5 text-sm font-semibold text-ink"
                 >
                   <MapPin className="h-3.5 w-3.5 text-mint-400" />
                   {n}
                 </span>
               ))}
             </div>
-            <p className="mt-5 text-slate-300">…and every other part of {city.name}. Not sure? Message us.</p>
+            <p className="mt-5 text-ink-soft">…and every other part of {city.name}. Not sure? Message us.</p>
             {city.nearby && (
               <>
-                <h3 className="mt-8 font-display text-xl font-semibold text-white">
+                <h3 className="mt-8 font-display text-xl font-semibold text-ink">
                   {`Also serving around ${city.name}`}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-300">{city.nearby.join(" · ")}</p>
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft">{city.nearby.join(" · ")}</p>
               </>
             )}
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-display text-3xl font-bold text-white">Our services in {city.name}</h2>
+            <h2 className="font-display text-3xl font-bold text-ink">Our services in {city.name}</h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/services/${s.slug}/`}
-                    className="group flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-medium text-white transition-colors hover:border-mint-400/50"
+                    className="group flex items-center gap-2 rounded-xl border border-line bg-white px-4 py-3 font-medium text-ink transition-colors hover:border-mint-400/50"
                   >
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-mint-400" />
                     <span className="flex-1">{s.name}</span>
@@ -226,9 +226,9 @@ export default async function CityPage({ params }: PageProps) {
       </Section>
 
       {/* FAQs */}
-      <section className="border-t border-white/5 bg-white/[0.03] py-16">
+      <section className="border-t border-line bg-teal-50/50 py-16">
         <Container>
-          <SectionHeading tone="dark" eyebrow="FAQs" title={`${city.name} duct cleaning questions`} />
+          <SectionHeading eyebrow="FAQs" title={`${city.name} duct cleaning questions`} />
           <Reveal delay={0.1}>
             <ServiceFAQ faqs={city.faqs} />
           </Reveal>
@@ -238,26 +238,26 @@ export default async function CityPage({ params }: PageProps) {
       {/* Nearby / related */}
       <Section>
         <Reveal>
-          <h2 className="font-display text-2xl font-bold text-white">More in {area.name}</h2>
+          <h2 className="font-display text-2xl font-bold text-ink">More in {area.name}</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {nearby.map((c) => (
               <Link
                 key={c.slug}
                 href={cityUrl(c)}
-                className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-mint-400/60"
+                className="rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-mint-400/60"
               >
                 Duct cleaning {c.name}
               </Link>
             ))}
             <Link
               href={`/${area.slug}/`}
-              className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-mint-400/60"
+              className="rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-mint-400/60"
             >
               All of {area.name}
             </Link>
             <Link
               href={costUrl(city)}
-              className="rounded-full border border-mint-400/40 bg-mint-400/10 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-mint-400"
+              className="rounded-full border border-mint-400/40 bg-mint-400/10 px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-mint-400"
             >
               {city.name} cost guide
             </Link>

@@ -116,7 +116,7 @@ export function Reviews() {
                 >
                   <figure
                     className={cn(
-                      "relative isolate flex h-full flex-col overflow-hidden rounded-3xl rounded-tl-[4rem] bg-white p-8 pt-10 text-center shadow-[0_30px_70px_-30px_rgba(0,0,0,0.6)] transition-all duration-500",
+                      "relative isolate flex h-full flex-col overflow-hidden rounded-md bg-white p-8 pt-10 text-center shadow-[0_30px_70px_-30px_rgba(0,0,0,0.6)] transition-all duration-500",
                       active ? "scale-100 opacity-100" : "scale-[0.96] opacity-80",
                       r.sample && "border-2 border-dashed border-teal-200"
                     )}

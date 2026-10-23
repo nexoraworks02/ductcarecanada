@@ -28,7 +28,7 @@ export default function ServiceAreasPage() {
   )}`;
 
   return (
-    <div className="theme-dark relative min-h-screen pt-28 sm:pt-32">
+    <div className="theme-inner relative min-h-screen pt-28 sm:pt-32 lg:pt-40">
       {/* Ambient glows */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute left-[10%] top-[5%] h-[400px] w-[400px] rounded-full bg-teal-400/10 blur-[120px]" />
@@ -37,17 +37,17 @@ export default function ServiceAreasPage() {
 
       <Container className="py-12 text-center">
         <Reveal>
-          <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm font-medium text-cyan-100">
+          <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-1.5 text-sm font-medium text-teal-700">
             🍁 Coast to coast, Canada
           </p>
-          <h1 className="mx-auto mt-5 max-w-3xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h1 className="mx-auto mt-5 max-w-3xl font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">
             Air Duct Cleaning Across Canada
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#d9d6d2]">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
             {site.name} provides professional air duct cleaning, dryer vent
             cleaning, and furnace cleaning for homes and businesses across Ontario,
             Alberta, Quebec, British Columbia, Manitoba, Saskatchewan and
-            the Maritimes — with transparent province-based pricing and certified
+            the Maritimes — with published province-based prices and trained, insured
             technicians.
           </p>
         </Reveal>
@@ -65,7 +65,7 @@ export default function ServiceAreasPage() {
       </Section>
 
       {/* Services available everywhere */}
-      <section className="border-y border-white/5 bg-white/[0.02] py-16">
+      <section className="border-y border-line bg-white py-16">
         <Container>
           <SectionHeading
             eyebrow="What we do"
@@ -77,9 +77,9 @@ export default function ServiceAreasPage() {
               <Reveal key={s.slug} delay={(i % 3) * 0.08}>
                 <Link
                   href={`/services/${s.slug}/`}
-                  className="group relative isolate flex h-full items-center gap-3 overflow-hidden rounded-2xl rounded-tl-[2.5rem] border border-white/10 bg-white/5 p-5 backdrop-blur transition-all hover:-translate-y-1 hover:border-teal-400/40"
+                  className="group relative isolate flex h-full items-center gap-3 overflow-hidden rounded-md border border-line bg-white p-5 backdrop-blur transition-all hover:-translate-y-1 hover:border-teal-300"
                 >
-                  <CardDecor tone="dark" />
+                  <CardDecor />
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-400 to-teal-600 text-white shadow-md">
                     <Wind className="h-5 w-5" />
                   </div>
@@ -91,8 +91,8 @@ export default function ServiceAreasPage() {
               </Reveal>
             ))}
             <Reveal delay={0.24}>
-              <div className="group relative isolate flex h-full items-center gap-3 overflow-hidden rounded-2xl rounded-tl-[2.5rem] border border-white/10 bg-white/5 p-5 backdrop-blur">
-                <CardDecor tone="dark" />
+              <div className="group relative isolate flex h-full items-center gap-3 overflow-hidden rounded-md border border-line bg-white p-5 backdrop-blur">
+                <CardDecor />
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-400 to-teal-600 text-white shadow-md">
                   <Wind className="h-5 w-5" />
                 </div>
@@ -108,7 +108,7 @@ export default function ServiceAreasPage() {
       {/* CTA */}
       <Section>
         <Container className="text-center">
-          <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
+          <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">
             Not sure if we cover your area?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-ink-soft">

@@ -21,14 +21,14 @@ export const metadata: Metadata = {
 
 export default function BlogIndexPage() {
   return (
-    <div className="theme-dark relative min-h-screen pt-28 sm:pt-32">
+    <div className="theme-inner relative min-h-screen pt-28 sm:pt-32 lg:pt-40">
       <Container className="py-12">
         <Reveal>
           <Breadcrumbs items={[{ label: "Blog", href: "/blog/" }]} />
-          <h1 className="max-w-3xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h1 className="max-w-3xl font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">
             Duct cleaning tips &amp; guides
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#d9d6d2]">{description}</p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">{description}</p>
         </Reveal>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -36,16 +36,16 @@ export default function BlogIndexPage() {
             <Reveal key={post.slug} delay={(i % 3) * 0.08}>
               <Link
                 href={`/blog/${post.slug}/`}
-                className="group relative isolate flex h-full flex-col overflow-hidden rounded-2xl rounded-tl-[3rem] border border-white/10 bg-white/5 p-6 backdrop-blur transition-all hover:-translate-y-1 hover:border-mint-400/40"
+                className="group relative isolate flex h-full flex-col overflow-hidden rounded-md border border-line bg-white p-6 backdrop-blur transition-all hover:-translate-y-1 hover:border-teal-300"
               >
-                <CardDecor tone="dark" />
-                <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#ffc6cc]">
+                <CardDecor />
+                <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-teal-400">
                   <Clock className="h-3.5 w-3.5" />
                   {post.readMins} min read
                 </p>
-                <h2 className="mt-3 font-display text-xl font-semibold leading-snug text-white">{post.title}</h2>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-200">{post.description}</p>
-                <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-mint-400 group-hover:text-white">
+                <h2 className="mt-3 font-display text-xl font-semibold leading-snug text-ink">{post.title}</h2>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">{post.description}</p>
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-mint-400 group-hover:text-ink">
                   Read guide
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>

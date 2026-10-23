@@ -55,7 +55,7 @@ export function ProvinceLanding({ page }: { page: ProvincePage }) {
       {/* Hero band — desktop: the landmark photo behind the text with a navy
           shade. Phones: the landmark as a normal-shaped banner on top (a tall
           phone section would stretch and crop a background photo). */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-b from-band-900 to-band-700 pb-16 pt-24 sm:pt-28 lg:bg-band-900 lg:pt-32">
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-band-900 to-band-700 pb-16 pt-24 sm:pt-28 lg:bg-band-900 lg:pt-44">
         {area && (
           <Image
             src={area.photo}
@@ -74,7 +74,7 @@ export function ProvinceLanding({ page }: { page: ProvincePage }) {
             {/* Phones: landmark banner */}
             {area && (
               <Reveal from="zoom" className="mb-7 lg:hidden">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl rounded-tl-[3rem] border border-white/10 shadow-[0_24px_50px_-24px_rgba(0,0,0,0.7)]">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-white/10 shadow-[0_24px_50px_-24px_rgba(0,0,0,0.7)]">
                   <Image
                     src={area.photo}
                     alt={`${area.landmark} — air duct cleaning in ${area.name}`}
@@ -131,7 +131,7 @@ export function ProvinceLanding({ page }: { page: ProvincePage }) {
           </div>
           <div className="hidden lg:col-span-5 lg:block">
             <Reveal delay={0.1}>
-              <div className="relative mx-auto aspect-[4/5] max-w-md overflow-hidden rounded-3xl border border-white/10 shadow-soft">
+              <div className="relative mx-auto aspect-[4/5] max-w-md overflow-hidden rounded-md border border-white/10 shadow-soft">
                 <Image
                   src={page.heroImage}
                   alt={`Duct Care Canada technician cleaning air ducts in ${page.name}`}
@@ -174,7 +174,7 @@ export function ProvinceLanding({ page }: { page: ProvincePage }) {
             </Reveal>
             {i === 0 && (
               <Reveal delay={0.1}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-soft">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-md shadow-soft">
                   <Image
                     src={page.sideImage}
                     alt={`Air duct cleaning equipment in a ${page.name} home`}
@@ -227,7 +227,7 @@ export function ProvinceLanding({ page }: { page: ProvincePage }) {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="relative isolate overflow-hidden rounded-[2rem] rounded-tl-[4rem] border border-line bg-white p-7 shadow-[0_30px_70px_-40px_rgba(29,33,39,0.45)]">
+            <div className="relative isolate overflow-hidden rounded-md border border-line bg-white p-7 shadow-[0_30px_70px_-40px_rgba(29,33,39,0.45)]">
               <CardDecor size="lg" />
               <h2 className="font-display text-2xl font-extrabold text-ink">Contact Info</h2>
               <ul className="mt-5 space-y-3 text-ink-soft">
