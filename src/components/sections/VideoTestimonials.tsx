@@ -128,7 +128,7 @@ function FeaturedPlayer({ onOpen }: { onOpen: () => void }) {
       <div className="pointer-events-none absolute -bottom-10 -right-14 h-48 w-48 rounded-full bg-teal-50 motion-safe:animate-[float-y_6s_ease-in-out_infinite]" />
       <SparkleField className="text-teal-200" />
 
-      <div className="relative rounded-md bg-teal-800 p-3 shadow-[0_40px_80px_-30px_rgba(29,33,39,0.75)]">
+      <div className="relative rounded-md bg-teal-800 p-3 shadow-[0_40px_80px_-30px_rgba(20,33,61,0.75)]">
         <div className="absolute left-1/2 top-5 z-10 h-1.5 w-16 -translate-x-1/2 rounded-full bg-white/25" />
         <div className="relative aspect-[9/16] overflow-hidden rounded-md bg-black">
           <video
@@ -245,7 +245,7 @@ function WallCard({
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: Math.min(index, 5) * 0.06 }}
       aria-label={`Play customer video review ${index + 1}`}
-      className="group relative isolate aspect-[9/16] w-[200px] shrink-0 snap-start overflow-hidden rounded-md bg-teal-800 shadow-[0_24px_50px_-24px_rgba(29,33,39,0.6)] sm:w-[220px]"
+      className="group relative isolate aspect-[9/16] w-[200px] shrink-0 snap-start overflow-hidden rounded-md bg-teal-800 shadow-[0_24px_50px_-24px_rgba(20,33,61,0.6)] sm:w-[220px]"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -316,7 +316,7 @@ function Lightbox({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#15181C]/95 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0d1830]/95 p-4 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-label="Customer video review"

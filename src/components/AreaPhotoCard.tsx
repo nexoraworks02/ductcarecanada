@@ -14,7 +14,7 @@ export function AreaPhotoCard({ area, className }: { area: Province; className?:
       href={`/${area.slug}/`}
       aria-label={`Air duct cleaning in ${area.name} — from $${area.priceFrom}`}
       className={cn(
-        "group relative isolate flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-md shadow-[0_24px_50px_-28px_rgba(29,33,39,0.6)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-26px_rgba(29,33,39,0.75)]",
+        "group relative isolate flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-md shadow-[0_24px_50px_-28px_rgba(20,33,61,0.6)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-26px_rgba(20,33,61,0.75)]",
         className
       )}
     >
@@ -27,7 +27,7 @@ export function AreaPhotoCard({ area, className }: { area: Province; className?:
         className="-z-10 object-cover transition-transform duration-700 ease-out group-hover:scale-110"
       />
       {/* Dark fade so the white text is always readable */}
-      <span className="absolute inset-0 -z-10 bg-gradient-to-t from-[#15181C]/90 via-[#15181C]/25 to-transparent" />
+      <span className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0d1830]/90 via-[#0d1830]/25 to-transparent" />
 
       <div className="flex items-end justify-between gap-3 p-5">
         <div className="min-w-0">

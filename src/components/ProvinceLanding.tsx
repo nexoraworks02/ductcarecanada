@@ -67,8 +67,8 @@ export function ProvinceLanding({ page }: { page: ProvincePage }) {
             className="-z-10 hidden object-cover lg:block"
           />
         )}
-        <div className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-[#15181C]/95 via-[#15181C]/80 to-[#15181C]/45 lg:block" />
-        <div className="absolute inset-0 -z-10 hidden bg-gradient-to-t from-[#15181C]/80 via-transparent to-transparent lg:block" />
+        <div className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-[#0d1830]/95 via-[#0d1830]/80 to-[#0d1830]/45 lg:block" />
+        <div className="absolute inset-0 -z-10 hidden bg-gradient-to-t from-[#0d1830]/80 via-transparent to-transparent lg:block" />
         <Container className="relative grid items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
             {/* Phones: landmark banner */}
@@ -227,7 +227,7 @@ export function ProvinceLanding({ page }: { page: ProvincePage }) {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="relative isolate overflow-hidden rounded-md border border-line bg-white p-7 shadow-[0_30px_70px_-40px_rgba(29,33,39,0.45)]">
+            <div className="relative isolate overflow-hidden rounded-md border border-line bg-white p-7 shadow-[0_30px_70px_-40px_rgba(20,33,61,0.45)]">
               <CardDecor size="lg" />
               <h2 className="font-display text-2xl font-extrabold text-ink">Contact Info</h2>
               <ul className="mt-5 space-y-3 text-ink-soft">

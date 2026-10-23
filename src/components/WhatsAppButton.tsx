@@ -131,7 +131,7 @@ export function WhatsAppButton() {
             <div className="flex items-center gap-3 bg-[#075E54] px-4 py-3.5 text-white">
               <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/logo/emblem.svg" alt="" className="h-7 w-auto" />
+                <img src="/icon.png" alt="" className="h-8 w-8 object-contain" />
                 <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-[#075E54] bg-[#25D366]" />
               </span>
               <span className="min-w-0 flex-1">

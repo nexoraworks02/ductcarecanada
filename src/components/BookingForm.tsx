@@ -519,11 +519,11 @@ export function BookingForm({ defaultProvince = "ON" }: { defaultProvince?: stri
         }
         .input:focus {
           border-color: var(--color-cyan);
-          box-shadow: 0 0 0 3px rgba(29,33,39, 0.3);
+          box-shadow: 0 0 0 3px rgba(20,33,61, 0.3);
         }
         /* Force readable option list (fixes white-on-white dropdown on Windows) */
         .input option {
-          background-color: #1D2127;
+          background-color: #14213d;
           color: #ffffff;
         }
       `}</style>

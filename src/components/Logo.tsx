@@ -15,12 +15,18 @@ export function Logo({
   const sm = size === "sm";
   return (
     <span className={cn("inline-flex items-center", sm ? "gap-2.5" : "gap-3", className)}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/logo/emblem.svg"
-        alt={site.name}
-        className={cn("w-auto shrink-0", sm ? "h-9 sm:h-10" : "h-11 sm:h-14")}
-      />
+      {/* Duct "C" + house emblem from the logo. On dark backgrounds it sits on
+          a white tile so the navy lines stay visible. */}
+      <span className={cn("shrink-0", !dark && "rounded-md bg-white px-1.5 py-1")}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/logo/emblem.webp"
+          alt={site.name}
+          width={420}
+          height={196}
+          className={cn("w-auto", sm ? "h-9 sm:h-10" : "h-10 sm:h-12")}
+        />
+      </span>
       <span className="flex flex-col whitespace-nowrap leading-none">
         <span
           className={cn(

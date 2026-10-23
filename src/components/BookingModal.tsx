@@ -92,7 +92,7 @@ export function BookingModal() {
       aria-hidden={!open}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-[#15181C]/70 backdrop-blur-sm" onClick={close} />
+      <div className="absolute inset-0 bg-[#0d1830]/70 backdrop-blur-sm" onClick={close} />
 
       {/* Panel */}
       <motion.div

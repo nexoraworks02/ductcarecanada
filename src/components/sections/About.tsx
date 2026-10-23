@@ -33,7 +33,7 @@ export function About() {
         {/* Photo + quote card */}
         <Reveal from="left" className="relative mx-auto w-full max-w-[480px] pb-16 sm:pb-10">
           {/* Vertical (4:5) frame + vertical photo so nothing is awkwardly cropped */}
-          <div className="relative aspect-[4/5] overflow-hidden rounded-md shadow-[0_30px_70px_-30px_rgba(29,33,39,0.5)]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-md shadow-[0_30px_70px_-30px_rgba(20,33,61,0.5)]">
             <motion.div style={{ y: imgY }} className="absolute -inset-y-12 inset-x-0">
               <Image
                 src="/images/photos/maritime.webp"
@@ -48,7 +48,7 @@ export function About() {
           <Reveal
             from="up"
             delay={0.3}
-            className="absolute -bottom-2 left-6 right-6 rounded-md bg-teal-400 p-7 text-white shadow-[0_24px_50px_-20px_rgba(29,33,39,0.9)] sm:left-16 sm:right-[-1.5rem]"
+            className="absolute -bottom-2 left-6 right-6 rounded-md bg-teal-400 p-7 text-white shadow-[0_24px_50px_-20px_rgba(20,33,61,0.9)] sm:left-16 sm:right-[-1.5rem]"
           >
             <Quote className="absolute right-5 top-4 h-10 w-10 text-white/25" />
             <p className="relative text-base italic leading-relaxed">

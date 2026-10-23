@@ -106,7 +106,7 @@ export default async function ServicePage({ params }: PageProps) {
         <div className="grid gap-12 lg:grid-cols-12 items-center">
           <div className="lg:col-span-7">
             <Reveal>
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-gradient-to-br from-[#C8102E] to-[#8C0B21] text-white shadow-[0_8px_20px_-6px_rgba(29,33,39,0.5)] mb-6">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-gradient-to-br from-[#C8102E] to-[#8C0B21] text-white shadow-[0_8px_20px_-6px_rgba(20,33,61,0.5)] mb-6">
                 <IconComponent className="h-6 w-6" />
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink mb-6">

@@ -71,7 +71,7 @@ export function PricingPlans() {
           ))}
         </Reveal>
 
-        <Stagger className="relative isolate mt-10 grid overflow-hidden rounded-md border border-slate-200 bg-white shadow-[0_30px_70px_-40px_rgba(29,33,39,0.45)] lg:grid-cols-5">
+        <Stagger className="relative isolate mt-10 grid overflow-hidden rounded-md border border-slate-200 bg-white shadow-[0_30px_70px_-40px_rgba(20,33,61,0.45)] lg:grid-cols-5">
           <CardDecor size="lg" />
 
           {/* Basic Duct Cleaning */}

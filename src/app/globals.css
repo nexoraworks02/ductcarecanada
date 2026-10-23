@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 /* ----------------------------------------------------------------
-   Duct Care Canada — MAPLE RED + CHARCOAL design system, from the logo
-   (a red rounded-square emblem with a white roof + airflow mark).
+   Duct Care Canada — MAPLE RED + NAVY design system, from the logo
+   (navy duct "C", red roofline and airflow, maple leaf).
    Tokens keep their teal-* / mint-* names so components re-skin from
-   here: teal-50…700 = maple-red scale, teal-800 = logo charcoal,
-   mint-* = soft blush accent used on dark charcoal bands.
+   here: teal-50…700 = maple-red scale, teal-800 = logo navy,
+   mint-* = soft blush accent used on dark navy bands.
    ---------------------------------------------------------------- */
 @theme {
-  /* Maple-red scale (primary) + charcoal anchor */
+  /* Maple-red scale (primary) + navy anchor */
   --color-teal-50: #fbf1f1; /* faint red tint (chips, fills) */
   --color-teal-100: #f6dfe0;
   --color-teal-200: #edbfc2; /* light borders */
@@ -17,33 +17,33 @@
   --color-teal-500: #a90d27;
   --color-teal-600: #8c0b21; /* text/solid on light */
   --color-teal-700: #6e0a1b; /* deep accent text */
-  --color-teal-800: #1d2127; /* logo charcoal (headings, dark solids) */
+  --color-teal-800: #14213d; /* logo navy (headings, dark solids) */
 
-  /* Blush accent — readable on charcoal */
-  --color-mint-400: #ff9aa5; /* accent text / prices on charcoal */
+  /* Blush accent — readable on navy */
+  --color-mint-400: #ff9aa5; /* accent text / prices on navy */
   --color-mint-500: #ffc6cc; /* accent lines & dots */
   --color-mint-600: #ffe8ea; /* lightest accent */
 
-  /* Text & surfaces — LIGHT base (warm neutrals) */
-  --color-ink: #1d2127; /* headings (logo charcoal) */
-  --color-ink-soft: #545a63; /* body text */
-  --color-canvas: #f7f5f3; /* page background */
+  /* Text & surfaces — LIGHT base (cool neutrals) */
+  --color-ink: #14213d; /* headings (logo navy) */
+  --color-ink-soft: #4a5568; /* body text */
+  --color-canvas: #f5f7fa; /* page background */
   --color-surface: #ffffff; /* cards */
-  --color-line: #e6e1dc; /* borders on light */
+  --color-line: #e2e7ef; /* borders on light */
 
   /* Colour bands behind white text (hero overlay, stats, booking form,
-     reviews, province heroes) — charcoal so the red pops on top. */
-  --color-band-900: #1d2127;
-  --color-band-700: #292e35;
-  --color-band-500: #3a4048;
+     reviews, province heroes) — navy so the red pops on top. */
+  --color-band-900: #14213d;
+  --color-band-700: #1e3054;
+  --color-band-500: #2c4270;
 
   /* Dark tokens (bands) */
-  --color-navy: #15181c;
-  --color-midnight: #1d2127;
+  --color-navy: #0d1830;
+  --color-midnight: #14213d;
   --color-air: #c8102e;
   --color-cyan: #c8102e; /* focus/accent */
   --color-ice: #ffffff;
-  --color-muted: #737a84;
+  --color-muted: #6b7487;
   --color-success: #16a34a;
 
   /* Semantic aliases */
@@ -58,8 +58,8 @@
 
   /* Radius & shadows */
   --radius-card: 1rem;
-  --shadow-soft: 0 18px 40px -20px rgb(29 33 39 / 0.28);
-  --shadow-hard: 8px 8px 0 0 rgb(29 33 39 / 0.9);
+  --shadow-soft: 0 18px 40px -20px rgb(20 33 61 / 0.28);
+  --shadow-hard: 8px 8px 0 0 rgb(20 33 61 / 0.9);
 }
 
 html {

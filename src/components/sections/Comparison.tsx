@@ -30,7 +30,7 @@ export function Comparison() {
         </Reveal>
 
         <Reveal delay={0.1} className="mt-12 overflow-x-auto">
-          <table className="w-full min-w-[620px] border-collapse bg-white text-left shadow-[0_30px_70px_-45px_rgba(29,33,39,0.5)]">
+          <table className="w-full min-w-[620px] border-collapse bg-white text-left shadow-[0_30px_70px_-45px_rgba(20,33,61,0.5)]">
             <thead>
               <tr>
                 <th className="w-1/4 border-b border-line p-5 text-xs font-bold uppercase tracking-wider text-ink-soft" />

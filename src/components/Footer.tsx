@@ -62,7 +62,7 @@ export function Footer() {
 
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
         <div className="sm:col-span-2 lg:col-span-4">
-          <Logo />
+          <Logo size="sm" />
           <p className="mt-5 max-w-sm text-sm leading-relaxed">
             Air duct, furnace, dryer vent and HRV cleaning with published prices and every vent included.
           </p>

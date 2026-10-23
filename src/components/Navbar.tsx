@@ -84,7 +84,7 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: [0.21, 0.5, 0.27, 1] }}
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b border-line bg-white transition-shadow duration-300",
-        scrolled && "shadow-[0_12px_40px_-18px_rgba(29,33,39,0.35)]"
+        scrolled && "shadow-[0_12px_40px_-18px_rgba(20,33,61,0.35)]"
       )}
       onKeyDown={(e) => e.key === "Escape" && setMenu(null)}
     >
@@ -296,7 +296,7 @@ function PanelShell({ children, className }: { children: React.ReactNode; classN
   return (
     <div
       className={cn(
-        "relative overflow-hidden border border-t-4 border-line border-t-teal-400 bg-white p-3 shadow-[0_30px_70px_-25px_rgba(29,33,39,0.45)]",
+        "relative overflow-hidden border border-t-4 border-line border-t-teal-400 bg-white p-3 shadow-[0_30px_70px_-25px_rgba(20,33,61,0.45)]",
         className
       )}
     >

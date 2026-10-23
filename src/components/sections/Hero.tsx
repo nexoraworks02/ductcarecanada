@@ -21,7 +21,7 @@ export function Hero() {
       {/* Blueprint-style duct grid + red corner block */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:linear-gradient(to_right,#e6e1dc_1px,transparent_1px),linear-gradient(to_bottom,#e6e1dc_1px,transparent_1px)] [background-size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]"
+        className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:linear-gradient(to_right,#e2e7ef_1px,transparent_1px),linear-gradient(to_bottom,#e2e7ef_1px,transparent_1px)] [background-size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]"
       />
       <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-0 hidden h-full w-[42%] skew-x-[-8deg] bg-teal-800 lg:block" />
 
@@ -111,7 +111,7 @@ function PriceCheck() {
     setExtras((xs) => (xs.includes(id) ? xs.filter((x) => x !== id) : [...xs, id]));
 
   return (
-    <div className="relative border-t-[6px] border-teal-400 bg-white p-6 shadow-[0_40px_80px_-40px_rgba(29,33,39,0.55)] sm:p-8">
+    <div className="relative border-t-[6px] border-teal-400 bg-white p-6 shadow-[0_40px_80px_-40px_rgba(20,33,61,0.55)] sm:p-8">
       <p className="text-xs font-bold uppercase tracking-[0.2em] text-teal-400">Instant price check</p>
       <h2 className="mt-1 font-display text-2xl font-extrabold text-teal-800">What will my cleaning cost?</h2>
 
